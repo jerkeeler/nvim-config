@@ -1,12 +1,12 @@
 local function map(mode, lhs, rhs)
-    vim.keymap.set(mode, lhs, rhs, { silent = true })
+	vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
 
 -- Smart way to move between windows
-vim.keymap.set('n', '<C-j>', '<C-W>j')
-vim.keymap.set('n', '<C-k>', '<C-W>k')
-vim.keymap.set('n', '<C-h>', '<C-W>h')
-vim.keymap.set('n', '<C-l>', '<C-W>l')
+map("n", "<C-j>", "<C-W>j")
+map("n", "<C-k>", "<C-W>k")
+map("n", "<C-h>", "<C-W>h")
+map("n", "<C-l>", "<C-W>l")
 
 -- Smart way to resize windows
 map("n", "<C-Left>", "<C-w><")
@@ -19,58 +19,65 @@ map("n", "<leader>o", "<CMD>vsplit<CR>")
 map("n", "<leader>p", "<CMD>split<CR>")
 
 -- Hop to the file browser easily, "fd" for file directory
-vim.keymap.set('n', '<Leader>fd', '<cmd>Ex<cr>')
+map("n", "<Leader>fd", "<cmd>Ex<cr>")
 
 -- Change buffers easily
-vim.keymap.set('n', '<Leader>l', '<cmd>bnext<cr>')
-vim.keymap.set('n', '<Leader>h', '<cmd>bprevious<cr>')
+map("n", "<Leader>l", "<cmd>bnext<cr>")
+map("n", "<Leader>h", "<cmd>bprevious<cr>")
 
 -- Quick scribble buffer
-vim.keymap.set('n', '<Leader>q', '<cmd>e ~/buffer<cr>')
+map("n", "<Leader>q", "<cmd>e ~/buffer<cr>")
 
 -- Toggle paste mode on/off
-vim.keymap.set('n', '<Leader>pp', '<cmd>setlocal paste!<cr>')
+map("n", "<Leader>pp", "<cmd>setlocal paste!<cr>")
 
 -- Fast saving
-vim.keymap.set('n', '<Leader>w', '<cmd>w!<cr>')
+map("n", "<Leader>w", "<cmd>w!<cr>")
 
-
-vim.keymap.set('n', '<Leader>x', '<cmd>close<cr>')
-
+-- Fast closing
+map("n", "<Leader>x", "<cmd>close<cr>")
 
 -- """"""""""""""""""""""""""""""
 -- " => Visual mode related
 -- """"""""""""""""""""""""""""""
 -- Visual mode pressing * or # searches for the current selection
 -- Super useful! From an idea by Michael Naumann
-vim.keymap.set('v', '*', "<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>")
-vim.keymap.set('v', '#', "<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>")
+map("v", "*", "<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>")
+map("v", "#", "<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>")
 -- Disable highlight when <leader><cr> is pressed
-vim.keymap.set('', '<Leader><cr>', '<cmd>noh<cr>')
+map("", "<Leader><cr>", "<cmd>noh<cr>")
 
+-- """"""""""""""""""""""""""""""
+-- " Telescope remaps
+-- """"""""""""""""""""""""""""""
 -- Function to close the current buffer while handling alternate buffers
 local function buf_close()
-    local current_buf = vim.fn.bufnr('%')
-    local alternate_buf = vim.fn.bufnr('#')
+	local current_buf = vim.fn.bufnr("%")
+	local alternate_buf = vim.fn.bufnr("#")
 
-    -- Try to switch to alternate buffer if it exists
-    if vim.fn.buflisted(alternate_buf) == 1 then
-        vim.cmd('buffer #')
-    else
-        vim.cmd('bnext')
-    end
+	-- Try to switch to alternate buffer if it exists
+	if vim.fn.buflisted(alternate_buf) == 1 then
+		vim.cmd("buffer #")
+	else
+		vim.cmd("bnext")
+	end
 
-    -- If we're still on the same buffer, create a new one
-    if vim.fn.bufnr('%') == current_buf then
-        vim.cmd('new')
-    end
+	-- If we're still on the same buffer, create a new one
+	if vim.fn.bufnr("%") == current_buf then
+		vim.cmd("new")
+	end
 
-    -- Delete the original buffer if it's still listed
-    if vim.fn.buflisted(current_buf) == 1 then
-        vim.cmd('bdelete! ' .. current_buf)
-    end
+	-- Delete the original buffer if it's still listed
+	if vim.fn.buflisted(current_buf) == 1 then
+		vim.cmd("bdelete! " .. current_buf)
+	end
 end
-
 -- Create a user command to call the function
-vim.api.nvim_create_user_command('Bclose', buf_close, {})
-vim.keymap.set('n', '<Leader>bd', '<cmd>Bclose<cr>tabclose<cr>gT')
+vim.api.nvim_create_user_command("Bclose", buf_close, {})
+map("n", "<Leader>bd", "<cmd>Bclose<cr>tabclose<cr>gT")
+
+-- """"""""""""""""""""""""""""""
+-- " Telescope remaps
+-- """"""""""""""""""""""""""""""
+map("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+map("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find files in buffers" })

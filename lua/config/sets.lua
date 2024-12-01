@@ -23,6 +23,7 @@ vim.opt.inccommand = "split"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.wrap = false
+vim.opt.colorcolumn = "120"
 
 -- Ensure at least 8 lines offset from bottom of window
 vim.opt.scrolloff = 8
@@ -32,5 +33,3 @@ vim.opt.scrolloff = 8
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 -- vim.opt.hlserach = true
-
-
