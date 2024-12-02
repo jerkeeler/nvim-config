@@ -4,7 +4,7 @@ end
 
 -- Smart way to move between windows
 map("n", "<C-j>", "<C-W>j")
-map("n", "<C-k>", "<C-W>k")
+map("n", "<C-k>", "x<C-W>k")
 map("n", "<C-h>", "<C-W>h")
 map("n", "<C-l>", "<C-W>l")
 
