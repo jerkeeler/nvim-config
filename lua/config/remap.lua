@@ -106,3 +106,9 @@ map("n", "<leader>ng", "<cmd>Neotree float git_status<cr>")
 -- " Undotree remaps
 -- """"""""""""""""""""""""""""""
 map("n", "<leader>ut", "<cmd>UndotreeToggle<cr>")
+
+-- Basic LSP keybindings for definitions
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+map("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+map("n", "gt", vim.lsp.buf.type_definition, { desc = "Go to type definition" })

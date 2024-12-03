@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-
 -- vim.opt.notermguicolors = true
 vim.opt.number = true
 vim.opt.bg = "dark"
@@ -11,6 +10,7 @@ vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.encoding = "UTF-8"
 vim.opt.ruler = true
 vim.opt.title = true
@@ -24,6 +24,16 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.wrap = false
 vim.opt.colorcolumn = "120"
+vim.opt.listchars = {
+	-- eol = "↲",
+	tab = "▸ ",
+	trail = "·",
+	extends = "❯",
+	precedes = "❮",
+	--space = "␣",
+	nbsp = "⦸",
+}
+vim.opt.list = true
 
 -- Ensure at least 8 lines offset from bottom of window
 vim.opt.scrolloff = 8
