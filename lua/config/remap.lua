@@ -37,6 +37,15 @@ map("n", "<Leader>w", "<cmd>w!<cr>")
 -- Fast closing
 map("n", "<Leader>x", "<cmd>close<cr>")
 
+-- Mapping ctrl-d and ctrl-d so cursor is in the middle
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "n", "nzz")
+map("n", "N", "Nzz")
+
+-- Make a leader + p paste and not overwrite the buffer! Super useful
+map("x", "<leader>p", '"_dP')
+
 -- """"""""""""""""""""""""""""""
 -- " => Visual mode related
 -- """"""""""""""""""""""""""""""
