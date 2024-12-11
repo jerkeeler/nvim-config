@@ -21,7 +21,7 @@ map("n", "<leader>p", "<CMD>split<CR>")
 -- Hop to the basic file browser easily, "fd" for file directory
 map("n", "<Leader>fd", "<cmd>Ex<cr>")
 
--- Change buffers easily
+-- Change buffern easily
 map("n", "<Leader>l", "<cmd>bnext<cr>")
 map("n", "<Leader>h", "<cmd>bprevious<cr>")
 
@@ -83,7 +83,7 @@ local function buf_close()
 end
 -- Create a user command to call the function
 vim.api.nvim_create_user_command("Bclose", buf_close, {})
-map("n", "<Leader>bd", "<cmd>Bclose<cr>tabclose<cr>gT")
+map("n", "<Leader>bd", "<cmd>bdelete<cr>")
 
 -- """"""""""""""""""""""""""""""
 -- DEPRECATED, using fzf-lua instead for performance

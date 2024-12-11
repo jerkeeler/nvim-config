@@ -19,6 +19,7 @@ return {
 				"tailwindcss",
 				"astro",
 				"svelte",
+				"ruby_lsp",
 			},
 		})
 
@@ -28,6 +29,7 @@ return {
 				"prettier",
 				"isort", -- python formatter
 				"black", -- python formatter
+				"rubocop",
 				-- "pylint",
 				-- "eslint_d",
 			},
