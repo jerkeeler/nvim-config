@@ -89,20 +89,21 @@ map("n", "<Leader>bd", "<cmd>bdelete<cr>")
 -- DEPRECATED, using fzf-lua instead for performance
 -- " Telescope remaps
 -- """"""""""""""""""""""""""""""
--- map("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
--- map("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find files in buffers" })
--- map("n", "<leader>fi", function()
--- 	require("telescope.builtin").find_files({ no_ignore = true, hidden = true })
--- end, { desc = "Find files (including ignored)" })
--- map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+map("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find files in buffers" })
+map("n", "<leader>fi", function()
+	require("telescope.builtin").find_files({ no_ignore = true, hidden = true })
+end, { desc = "Find files (including ignored)" })
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>fb", "<cmd>Telescope file_browser<cr>")
 
 -- """"""""""""""""""""""""""""""
--- " Neotree remaps
+-- " FzfLua remaps
 -- """"""""""""""""""""""""""""""
-map("n", "<leader>f", "<cmd>FzfLua files<cr>")
-map("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
-map("n", "<leader>g", "<cmd>FzfLua live_grep<cr>")
-map("n", "<leader>fg", "<cmd>FzfLua git_files<cr>")
+-- map("n", "<leader>f", "<cmd>FzfLua files<cr>")
+-- map("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
+-- map("n", "<leader>g", "<cmd>FzfLua live_grep<cr>")
+-- map("n", "<leader>fg", "<cmd>FzfLua git_files<cr>")
 
 -- """"""""""""""""""""""""""""""
 -- " Neotree remaps
